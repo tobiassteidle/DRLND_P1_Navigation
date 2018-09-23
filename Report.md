@@ -1,3 +1,6 @@
+## Solution Video
+[![Navigation](http://img.youtube.com/vi/lqu3RN5a7g8/0.jpg)](https://www.youtube.com/watch?v=lqu3RN5a7g8 "Navigation")
+
 ## Learning Algorithm
 
 My learning algorithm is a DuelingDQN.  
@@ -8,7 +11,6 @@ advantage values __Q(s,a) = V(s) + A(s,a)__.
 The intuition behind it is that the value of most states don’t vary a lot accross actions.  
 So it makes sense to try to estimate them directly, but we still need to capture the differences that actions make in  
 each state. This is where the advantage function comes in.
-
 
 More information in the [Dueling Networks](https://arxiv.org/abs/1511.06581) paper.   
 
