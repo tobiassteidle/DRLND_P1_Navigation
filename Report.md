@@ -1,10 +1,10 @@
 ## Learning Algorithm
 
 My learning algorithm is a DuelingDQN.  
-The idea behind a DuelingDQN is to use two streams. One for the state value function ***V(s)*** and one that estimates the  
-advantage vor each action ***A(s,a)***. The first layers of the network like the convolutional layers share both streams,  
+The idea behind a DuelingDQN is to use two streams. One for the state value function __V(s)__ and one that estimates the  
+advantage vor each action __A(s,a)__. The first layers of the network like the convolutional layers share both streams,  
 but then branch of into their own fully connected layers. The desired Q-values are obtained by combining the state and  
-advantage values ***Q(s,a) = V(s) + A(s,a)***.
+advantage values __Q(s,a) = V(s) + A(s,a)__.
 The intuition behind it is that the value of most states don’t vary a lot accross actions.  
 So it makes sense to try to estimate them directly, but we still need to capture the differences that actions make in  
 each state. This is where the advantage function comes in.
