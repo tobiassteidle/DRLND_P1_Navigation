@@ -5,7 +5,7 @@ import torch.nn.functional as F
 class QNetwork(nn.Module):
     """Actor (Policy) Model."""
 
-    def __init__(self, state_size, action_size, seed, fc1_size=64, fc2_size=64):
+    def __init__(self, state_size, action_size, seed):
         """Initialize parameters and build model.
         Params
         ======
@@ -15,9 +15,9 @@ class QNetwork(nn.Module):
         """
         super(QNetwork, self).__init__()
         self.seed = torch.manual_seed(seed)
-        self.fc1 = nn.Linear(state_size, fc1_size)
-        self.fc2 = nn.Linear(fc1_size, fc2_size)
-        self.out = nn.Linear(fc2_size, action_size)
+        self.fc1 = nn.Linear(state_size, 64)
+        self.fc2 = nn.Linear(64, 64)
+        self.out = nn.Linear(64, action_size)
 
     def forward(self, state):
         """Build a network that maps state -> action values."""
@@ -62,7 +62,7 @@ class QNetworkConvolutional(nn.Module):
 class DuelingDQN(nn.Module):
     """Actor (Policy) Model."""
 
-    def __init__(self, state_size, action_size, seed, fc1_size=64, fc2_size=64):
+    def __init__(self, state_size, action_size, seed):
         """Initialize parameters and build model.
         Params
         ======
@@ -72,15 +72,15 @@ class DuelingDQN(nn.Module):
         """
         super(DuelingDQN, self).__init__()
         self.seed = torch.manual_seed(seed)
-        self.fc1 = nn.Linear(state_size, fc1_size)
+        self.fc1 = nn.Linear(state_size, 64)
 
-        self.fc1_value = nn.Linear(fc1_size, fc2_size)
-        self.fc2_value = nn.Linear(fc2_size, fc2_size)
-        self.out_value = nn.Linear(fc2_size, 1)
+        self.fc1_value = nn.Linear(64, 64)
+        self.fc2_value = nn.Linear(64, 64)
+        self.out_value = nn.Linear(64, 1)
 
-        self.fc1_action = nn.Linear(fc1_size, fc2_size)
-        self.fc2_action = nn.Linear(fc2_size, fc2_size)
-        self.out_action = nn.Linear(fc2_size, action_size)
+        self.fc1_action = nn.Linear(64, 64)
+        self.fc2_action = nn.Linear(64, 64)
+        self.out_action = nn.Linear(64, action_size)
 
     def forward(self, state):
         """Build a network that maps state -> action values."""
