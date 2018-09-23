@@ -2,7 +2,7 @@ import numpy as np
 import random
 from collections import namedtuple, deque
 
-from model import QNetwork, DuelingDQN
+from model import QNetwork, DuelingDQN, QNetworkConvolutional
 
 import torch
 import torch.nn.functional as F
@@ -38,9 +38,13 @@ class Agent():
             self.qnetwork_local = QNetwork(state_size, action_size, seed).to(device)
             self.qnetwork_target = QNetwork(state_size, action_size, seed).to(device)
 
+        if model == "QNetworkConvolutional":
+            self.qnetwork_local = QNetworkConvolutional(state_size, action_size, seed).to(device)
+            self.qnetwork_target = QNetworkConvolutional(state_size, action_size, seed).to(device)
+
         if model == "DuelingDQN":
-            self.qnetwork_local = QNetwork(state_size, action_size, seed).to(device)
-            self.qnetwork_target = QNetwork(state_size, action_size, seed).to(device)
+            self.qnetwork_local = DuelingDQN(state_size, action_size, seed).to(device)
+            self.qnetwork_target = DuelingDQN(state_size, action_size, seed).to(device)
 
         print("Model: " + model)
 

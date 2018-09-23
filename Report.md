@@ -50,13 +50,13 @@ Episode 517|Average Score: 13.05
 
 #### DuelingDQN  + Replay Buffer
 Episodes | Average Score
------------- | -------------
-Episode 100|Average Score: 1.06
-Episode 200|Average Score: 4.92
-Episode 300|Average Score: 7.38
-Episode 400|Average Score: 10.25
-Episode 483|Average Score: 13.00
-- |Environment solved in 383 episodes!	Average Score: 13.00
+--- | ---
+Episode 100|Average Score: 0.88
+Episode 200|Average Score: 4.39
+Episode 300|Average Score: 7.50
+Episode 400|Average Score: 10.83
+Episode 447|Average Score: 13.00
+- | Environment solved in 347 episodes!	Average Score: 13.00
 
 
 ![DuelingDQN](report/DuelingDQN_scores.png)
